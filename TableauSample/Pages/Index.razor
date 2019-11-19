@@ -3,7 +3,12 @@
 
 <h1>Tableau Example</h1>
 
-<div id="vizContainer" style="width:800px; height:700px;" @ref="vizContainer"></div>
+<p>
+    This sample was created as a test to help answer StackOverflow question at
+    https://stackoverflow.com/questions/58519173/how-to-embed-tableau-into-asp-net-core-blazor
+</p>
+
+<div style="width:800px; height:700px;" @ref="vizContainer"></div>
 
 @code
 {
@@ -15,10 +20,14 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        const string url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms";
-        // invoke the 'initViz' function
+        const string url = "https://public.tableau.com/views/RegionalSampleWorkbook/Storms";
+        
         Console.WriteLine("Invoking initViz");
+        
+        // invoke the 'initViz' function - pass the vizContainer element and the URL
+        // note I adjusted the sample URL to https 
         await jsRuntime.InvokeVoidAsync("initViz", vizContainer, url);
+
         Console.WriteLine("Invoked initViz");
 
         await base.OnAfterRenderAsync(firstRender);

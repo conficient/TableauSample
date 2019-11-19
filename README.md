@@ -10,5 +10,5 @@ the following changes to make it work in Blazor:
  - created `tableauInterop.js` in the `wwwroot` folder
  - add the Tableau library to `_Host.cshtml` and imported the `tableauInterop` as well
  - modified `Index.razor` to add a `div` and an `OnAfterRenderAsync` override to invoke the interop lib
- 
 
+![Sample](demo.png)

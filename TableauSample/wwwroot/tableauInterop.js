@@ -3,7 +3,7 @@
 // I've been lazy and added this to the window object
 
 window.initViz = function (containerDiv, url) {
-    // containerDiv: element to update - use @Ref in Blazor to get this
+    // containerDiv: element to update - use @ref in Blazor to get this
     console.log("initViz called for " + url);
     if (!containerDiv) throw "no container provided";
     if (!url) throw "no url provided";
