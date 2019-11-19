@@ -1,0 +1,26 @@
+﻿@page "/"
+@inject IJSRuntime jsRuntime
+
+<h1>Tableau Example</h1>
+
+<div id="vizContainer" style="width:800px; height:700px;" @ref="vizContainer"></div>
+
+@code
+{
+    /// <summary>
+    /// this is bound to the vizContainer div
+    /// </summary>
+    ElementReference vizContainer;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        const string url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms";
+        // invoke the 'initViz' function
+        Console.WriteLine("Invoking initViz");
+        await jsRuntime.InvokeVoidAsync("initViz", vizContainer, url);
+        Console.WriteLine("Invoked initViz");
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}
